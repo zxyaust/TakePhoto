@@ -20,6 +20,8 @@ public class SystemPhotoUtil {
     /* 头像名称 */
     private static final String PHOTO_FILE_NAME = "temp_photo.jpg";
     private File tempFile;
+    private int width = 250;
+    private int height = 250;
 
     private void crop(Activity context, Uri uri) {
         // 裁剪图片意图
@@ -30,8 +32,8 @@ public class SystemPhotoUtil {
         intent.putExtra("aspectX", 1);
         intent.putExtra("aspectY", 1);
         // 裁剪后输出图片的尺寸大小
-        intent.putExtra("outputX", 250);
-        intent.putExtra("outputY", 250);
+        intent.putExtra("outputX", width);
+        intent.putExtra("outputY", height);
         intent.putExtra("outputFormat", "JPEG");// 图片格式
         intent.putExtra("noFaceDetection", true);// 取消人脸识别
         intent.putExtra("return-data", true);
@@ -39,6 +41,10 @@ public class SystemPhotoUtil {
         context.startActivityForResult(intent, CROP_PHOTO);
     }
 
+    public void setCropPhotoSize(int width, int height) {
+        this.width = width;
+        this.height = height;
+    }
 
     public void pickPhoto(Activity context) {
         Intent intent = new Intent(Intent.ACTION_PICK);
