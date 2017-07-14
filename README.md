@@ -48,3 +48,4 @@ system method to take photo or pick photo用系统方式拍摄照片或者选取
             iv_avatar.setImageBitmap(bitmap);
     }
 ```
+thanks: http://www.cnblogs.com/changyiqiang/p/6144329.html
